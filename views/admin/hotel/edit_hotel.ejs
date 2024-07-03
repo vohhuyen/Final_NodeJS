@@ -1,0 +1,504 @@
+<div class="">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Detail hotel</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Settings 1</a>
+                    <a class="dropdown-item" href="#">Settings 2</a>
+                  </div>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+        <form class="" action="" method="post" novalidate>
+            <section class="content invoice">
+              <!-- title row -->
+              <div class="row my-3">
+                <div class="col-sm-4 invoice-header">
+                  <div class="x-panel border rounded py-2 shadow preview m-auto w-100 d-flex align-items-center justify-content-center flex-column" style="width: 400px; height: 390px; padding: 30px; max-width: 350px;">
+                    <img class="w-100" style="object-fit: cover; margin-bottom: 20px;" id="img-preview" src="./img.jpg" />
+                
+                    <label style="font-weight: 600;cursor: pointer;color: #fff;border-radius: 8px;padding: 10px 20px;background-color: #2A3F54;" for="file-input">Upload Main Image</label>
+                    <input accept="image/*" type="file" id="file-input" style="display: none;"/>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col m-1 my-auto ">
+                    
+                        <span class="section">Hotel Information</span>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Name<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="ex. John f. Kennedy" required="required" />
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Address<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" class='optional' name="address" data-validate-length-range="5,15" type="text" /></div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Telephone<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">email<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" name="email" class='email' required="required" type="email" /></div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Confirm email address<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="email" class='email' name="confirm_email" data-validate-linked='email' required='required' /></div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Description<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <textarea required="required" name='message'></textarea></div>
+                        </div>
+                        <!-- <div class="ln_solid">
+                            <div class="form-group">
+                                <div class="col-md-6 offset-md-3">
+                                    <button type='submit' class="btn btn-primary">Submit</button>
+                                    <button type='reset' class="btn btn-success">Reset</button>
+                                </div>
+                            </div>
+                        </div> -->
+                    
+                </div>
+                <!-- /.col -->
+                <div class="m-1  invoice-header">
+                  <span class="section">Main Facilities</span>
+                  <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> air conditioning
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Restaurant
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Swimming Pool
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> 24-Hour Front Desk
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Parking
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Elevator
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> WiFi
+                        </label>
+                    </div>
+                </div>
+                </div>
+                <!-- /.col -->
+                
+              </div>
+  
+              <div class="row">
+                <div class="w-100 invoice-col mx-4">
+                    <!-- <input type="file" name="upload" id="upload" onchange="ImagesFileAsURL()" multiple /> -->
+                    <div class="custom-file-container">
+                        <label class="custom-file-label" for="upload"> Upload Other Image</label>
+                        <input type="file" name="upload" id="upload" class="custom-file-input" onchange="ImagesFileAsURL()" multiple />
+                    </div>
+                    
+                    <div id="displayImg" class="x-panel border rounded py-2 shadow">
+            
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+  
+              <div id="FormRoom" class=" row m-1">
+                <div class="m-1 mb-3 col-sm-12 x-panel border rounded py-2 shadow">
+                  <!-- <h3>Deluxe Studio</h3> -->
+                    <div class="field item form-group justify-content-between">
+                        <div class="field item form-group">
+                            <label class="col-form-label label-align">Name room<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="ex. John f. Kennedy" required="required" />
+                            </div>
+                            <button type="button" data-toggle="modal" data-target=".btn-create-roomitem" class="btn btn-info mx-2">Create option <i class="fa fa-plus"></i></button>
+                        </div>
+                        
+
+                        
+                        <button type="button" class="btn mt-2 float-right" onclick="removeForm(this)">X</button>
+                        <div class="modal fade btn-create-roomitem" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+        
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="myModalLabel">Create room</h4>
+                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <!-- start form for validation -->
+                                  <form id="demo-form" data-parsley-validate>
+                                    <div class="form-group">
+                                    <label for="fullname">Name * :</label>
+                                    <input type="text" id="fullname" class="form-control" name="fullname" required />
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="m-1  invoice-header">
+                                            <label class="section">Bed * :</label>
+                                            <div class="form-group">
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" value=""> 1 single bed
+                                                  </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" value=""> 2 bed
+                                                  </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" value=""> 1 queen bed
+                                                  </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" value=""> 2 queen bed
+                                                  </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" value=""> 1 double bed
+                                                  </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" value=""> 2 double bed
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="heard">Price * :</label>
+                                    <input type="number" id="price" class="form-control" name="price" required />
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="heard">Note price :</label>
+                                    <input type="text" id="note-price" class="form-control" name="note-price"/>
+                                  </div>
+                                    <div class="form-group">
+                                    <label for="message">Description :</label>
+                                    <input class=" form-control" type="text" required="required">
+                                  </div>
+                                  </form>
+                                  <!-- end form for validations -->
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save</button>
+                                </div>
+        
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="w-auto d-flex justify-content-around">
+                    <div>
+                        <div class=" preview m-auto w-100 d-flex align-items-center justify-content-center flex-column" style="width: 300px; height: 300px; padding: 30px; max-width: 300px;">
+                            <img class="w-100 x-panel border rounded py-2 shadow" style="object-fit: cover; margin-bottom: 20px;" id="img-preview2" src="./img.jpg" />
+                        
+                            <label style="font-weight: 600;cursor: pointer;color: #fff;border-radius: 8px;padding: 10px 20px;background-color: #2A3F54;" for="file-input2">Upload Image Room</label>
+                            <input accept="image/*" type="file" id="file-input2" style="display: none;"/>
+                          </div>
+                    </div>
+                    <div style="width: 200px" class="my-2">
+                        <div class="m-1  invoice-header">
+                            <span class="section">Main Facilities</span>
+                            <div class="form-group">
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value=""> air conditioning
+                                  </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value=""> Restaurant
+                                  </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value=""> Swimming Pool
+                                  </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value=""> 24-Hour Front Desk
+                                  </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value=""> Parking
+                                  </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value=""> Elevator
+                                  </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value=""> WiFi
+                                  </label>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="field form-group">
+                            <label class="col-form-label  label-align">Description</label>
+                            <div>
+                                <textarea name='des-room'></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                      <table id="roomTable" class="table">
+                        <thead>
+                          <tr>
+                            <th>Room option</th>
+                            <th>Price/room/night</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <b>Without Breakfast</b>
+                              <p>1 Qeen Bed</p>
+                              <p>note</p>
+                            </td>
+                            <td><p>100$</p>
+                              <p>(includes taxes & fees)</p>
+                            </td>
+                            <td>
+                                <button type="button" data-toggle="modal" data-target=".btn-edit-roomitem" class="btn btn-info btn-sm" style="font-size: 13px;"><i class="fa fa-edit"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm"  style="font-size: 13px;"><i class="fa fa-trash"></i></button>
+
+                                <div class="modal fade btn-edit-roomitem" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                      <div class="modal-content">
+                
+                                        <div class="modal-header">
+                                          <h4 class="modal-title" id="myModalLabel">Update room</h4>
+                                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <!-- start form for validation -->
+                                          <form id="demo-form" data-parsley-validate>
+                                            <div class="form-group">
+                                            <label for="fullname">Name * :</label>
+                                            <input type="text" id="fullname" class="form-control" name="fullname" required />
+                                          </div>
+                                            <div class="form-group">
+                                                <div class="m-1  invoice-header">
+                                                    <label class="section">Bed * :</label>
+                                                    <div class="form-group">
+                                                      <div class="checkbox">
+                                                          <label>
+                                                              <input type="checkbox" value=""> 1 single bed
+                                                          </label>
+                                                      </div>
+                                                      <div class="checkbox">
+                                                          <label>
+                                                              <input type="checkbox" value=""> 2 bed
+                                                          </label>
+                                                      </div>
+                                                      <div class="checkbox">
+                                                          <label>
+                                                              <input type="checkbox" value=""> 1 queen bed
+                                                          </label>
+                                                      </div>
+                                                      <div class="checkbox">
+                                                          <label>
+                                                              <input type="checkbox" value=""> 2 queen bed
+                                                          </label>
+                                                      </div>
+                                                      <div class="checkbox">
+                                                          <label>
+                                                              <input type="checkbox" value=""> 1 double bed
+                                                          </label>
+                                                      </div>
+                                                      <div class="checkbox">
+                                                          <label>
+                                                              <input type="checkbox" value=""> 2 double bed
+                                                          </label>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="heard">Price * :</label>
+                                            <input type="number" id="price" class="form-control" name="price" required />
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="heard">Note price :</label>
+                                            <input type="text" id="note-price" class="form-control" name="note-price"/>
+                                          </div>
+                                            <div class="form-group">
+                                            <label for="message">Description :</label>
+                                            <input class=" form-control" type="text" required="required">
+                                          </div>
+                                          </form>
+                                          <!-- end form for validations -->
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary">Save</button>
+                                        </div>
+                
+                                      </div>
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <b>Without Breakfast</b>
+                              <p>1 Qeen Bed</p>
+                              <p>note</p>
+                            </td>
+                            <td><p>100$</p>
+                              <p>(includes taxes & fees)</p>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-info btn-sm" style="font-size: 13px;"><i class="fa fa-edit"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm"  style="font-size: 13px;"><i class="fa fa-trash"></i></button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <b>Without Breakfast</b>
+                              <p>1 Qeen Bed</p>
+                              <p>note</p>
+                            </td>
+                            <td><p>100$</p>
+                              <p>(includes taxes & fees)</p>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-info btn-sm" style="font-size: 13px;"><i class="fa fa-edit"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm"  style="font-size: 13px;"><i class="fa fa-trash"></i></button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-info" onclick="addNewForm()">Create new room</button>
+                <button type="button" class="btn btn-primary">Save <i class="fa fa-edit"></i></button>
+                <button type="button" class="btn btn-danger" >Delete <i class="fa fa-trash"></i></button>
+            </div>
+                
+            </section>
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const input = document.getElementById('file-input');
+const image = document.getElementById('img-preview');
+
+input.addEventListener('change', (e) => {
+    if (e.target.files.length) {
+        const src = URL.createObjectURL(e.target.files[0]);
+        image.src = src;
+    }
+});
+const input2 = document.getElementById('file-input2');
+const image2 = document.getElementById('img-preview2');
+
+input2.addEventListener('change', (e) => {
+    if (e.target.files.length) {
+        const src = URL.createObjectURL(e.target.files[0]);
+        image2.src = src;
+    }
+});
+            function ImagesFileAsURL() {
+    var fileSelected = document.getElementById('upload').files;
+    if (fileSelected.length > 0) {
+      for (var i = 0; i < fileSelected.length; i++) {
+        var fileToLoad = fileSelected[i];
+        var fileReader = new FileReader();
+        fileReader.onload = function(fileLoaderEvent) {
+          var srcData = fileLoaderEvent.target.result;
+          var newImage = document.createElement('img');
+          newImage.src = srcData;
+
+          // Tạo nút xóa và gán sự kiện click
+          var deleteButton = document.createElement('button');
+          deleteButton.textContent = 'X';
+          deleteButton.onclick = function() {
+            this.parentNode.parentNode.removeChild(this.parentNode); // Xóa thẻ div chứa ảnh và nút xóa
+          };
+
+          // Tạo một container div để chứa ảnh và nút xóa
+          var imageContainer = document.createElement('div');
+          imageContainer.classList.add('image-item'); // Thêm class để dễ dàng tùy chỉnh CSS
+          imageContainer.appendChild(newImage);
+          imageContainer.appendChild(deleteButton);
+
+          document.getElementById('displayImg').appendChild(imageContainer);
+        };
+        fileReader.readAsDataURL(fileToLoad);
+      }
+    }
+  }
+  function addNewForm() {
+    var formContainer = document.getElementById('FormRoom');
+    var newForm = formContainer.firstElementChild.cloneNode(true);
+    newForm.querySelector('textarea').value = '';
+    formContainer.appendChild(newForm);
+    clearTable();
+  }
+  function removeForm(button) {
+    var formToRemove = button.parentNode;
+    formToRemove = formToRemove.parentNode;
+    formToRemove.parentNode.removeChild(formToRemove);
+  }
+  function clearTable() {
+    var tableBody = document.querySelector('#roomTable tbody');
+    tableBody.innerHTML = ''; // Xóa hết nội dung trong tbody của bảng
+  }
+  </script>
+          
