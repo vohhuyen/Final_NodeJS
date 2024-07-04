@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/public/styles/output.css">
+    <link rel="stylesheet" href="/public/styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="img/traveloka.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <style>
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="flex justify-around">
+        <svg class="flex" width="135" height="43" viewBox="0 0 135 43" class="_1bmwm" fill="none" stroke="currentColor"
+            stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="Train_Booking" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Train_Booking-Form_Login-Success" transform="translate(-174.000000, -10.000000)">
+                    <g id="Logo-/-Normal-Text-Copy-2" transform="translate(174.000000, 10.000000)">
+                        <g id="Icon-Blue-Copy" transform="translate(106.348506, 0.000000)">
+                            <path
+                                d="M15.8750688,7.50608477 C21.1573073,4.14730475 27.7886168,3.50239999 27.7886168,3.50239999 C27.7886168,3.50239999 20.7528955,11.4997096 19.0326867,15.1945655 C18.5015045,16.8063672 19.6135162,18.1175255 19.6135162,18.1175255 C19.6135162,18.1175255 16.5318653,14.6660391 15.8750688,7.50608477 Z"
+                                id="Path-7" fill="#1BA0E2"></path>
+                            <path
+                                d="M18.162138,6.24397491 C17.3878953,6.61481372 16.6181339,7.03359719 15.8750688,7.50608477 C16.2091491,11.1480034 17.1706021,13.8304452 18.0347649,15.5872293 C18.4974096,16.4047306 18.9374198,17.0887931 19.2687154,17.5775849 C19.1008028,17.2517084 18.9278703,16.7972915 18.8946484,16.2674161 C18.4465048,14.5531906 18.0359014,11.5237307 18.162138,6.24397491 Z"
+                                id="Path-7-Copy" fill="#0D7FCC"></path>
+                            <path
+                                d="M11.1392242,10.6306432 C11.1392242,10.6306432 10.7916211,9.40930137 10.6718684,9.05703715 C10.3493019,8.10817672 10.0190832,7.14347468 10.0190831,5.49697918 C10.0190831,3.2392226 13.8646282,0.830360977 16.2083894,0.0738834971 C15.5726728,8.29080802 16.4960847,10.8058271 17.3467186,13.537055 C19.3596742,20.2576903 23.9571046,21.2294722 24.4111443,21.6850544 C23.2389565,21.4317473 23.9079977,21.9785645 23.9079977,21.9785645 C23.9079977,21.9785645 22.0366239,20.676552 18.2686172,19.6106221 C14.5006105,18.5446922 11.5607948,18.381561 9.76233612,17.3600837 C8.37731138,16.3196574 8.33271646,15.4721062 7.67451502,14.9032056 C5.51226604,13.0343176 0.0684652899,12.2483736 0.0684652899,12.2483736 L4.75199664,13.0114999 C4.75199664,13.0114999 5.39587343,13.0114997 6.15578398,12.7385777 C6.31936247,12.7171833 6.84077993,12.1226001 7.97022445,12.498467 C8.43508849,12.6515676 8.30440909,12.8180273 9.63493268,13.1922403 C11.3211407,13.6664904 11.1392242,10.6306432 11.1392242,10.6306432 Z"
+                                id="Path-6" fill="#1BA0E2"></path>
+                        </g>
+                        <path
+                            d="M1.87385717,24.8120388 C1.87385717,29.6167116 5.53639618,30.1853119 7.38186157,30.1853119 C7.94969708,30.1853119 8.34718193,30.1284519 8.34718193,30.1284519 L8.34718193,27.6834705 C8.34718193,27.6834705 8.09165595,27.7403305 7.6941711,27.7403305 C6.64367541,27.7403305 4.62785937,27.3707403 4.62785937,24.4993086 L4.62785937,18.1025548 L8.09165595,18.1025548 L8.09165595,15.8850135 L4.62785937,15.8850135 L4.62785937,11.734231 L1.95903249,11.734231 L1.95903249,15.8850135 L0,15.8850135 L0,18.1025548 L1.87385717,18.1025548 L1.87385717,24.8120388 Z M10.8843731,30.0715919 L13.6383753,30.0715919 L13.6383753,24.1865784 C13.6383753,23.3052479 13.7235506,22.4239173 13.9790766,21.5994469 C14.6320874,19.4671956 16.2504186,18.2162749 18.0107087,18.2162749 C18.4365853,18.2162749 18.8056784,18.3015649 18.8056784,18.3015649 L18.8056784,15.5722833 C18.8056784,15.5722833 18.4649771,15.5154233 18.095884,15.5154233 C15.8813255,15.5154233 14.2062108,17.1643642 13.5532,19.2681855 L13.4964164,19.2681855 C13.4964164,19.2681855 13.5532,18.7848752 13.5532,18.1878448 L13.5532,15.6860034 L10.8843731,15.6860034 L10.8843731,30.0715919 Z M19.7300691,26.0345295 C19.7300691,28.9059612 22.14337,30.4127521 24.6134544,30.4127521 C28.0488592,30.4127521 29.212922,27.5697504 29.212922,27.5697504 L29.2697056,27.5697504 C29.2697056,27.5697504 29.212922,28.0530607 29.212922,28.7069511 L29.212922,30.0715919 L31.7681818,30.0715919 L31.7681818,20.9739865 C31.7681818,17.3349443 29.723974,15.3448432 26.0898267,15.3448432 C22.7963808,15.3448432 20.7237812,17.0506442 20.7237812,17.0506442 L21.8594522,19.0691754 C21.8594522,19.0691754 23.6481341,17.6761045 25.8626925,17.6761045 C27.6797662,17.6761045 29.0141796,18.472145 29.0141796,20.8318364 L29.0141796,21.0877066 L28.3895605,21.0877066 C25.9762596,21.0877066 19.7300691,21.2867167 19.7300691,26.0345295 L19.7300691,26.0345295 Z M22.5124631,25.8923794 C22.5124631,23.3052479 26.2601774,23.1630978 28.332777,23.1630978 L29.0425714,23.1630978 L29.0425714,23.6179781 C29.0425714,25.7502293 27.5378073,28.1952108 25.2096817,28.1952108 C23.4209999,28.1952108 22.5124631,27.0580101 22.5124631,25.8923794 L22.5124631,25.8923794 Z M38.7344899,30.0715919 L41.9143687,30.0715919 L47.2236307,15.6860034 L44.3276696,15.6860034 L40.8354813,25.4090691 C40.5515635,26.2051096 40.3528211,27.3707403 40.3244293,27.3707403 L40.2676458,27.3707403 C40.239254,27.3707403 40.0689034,26.2051096 39.7849856,25.4090691 L36.2927972,15.6860034 L33.3684444,15.6860034 L38.7344899,30.0715919 Z M47.949279,22.8787976 C47.949279,27.1433001 51.0439825,30.4127521 55.5582748,30.4127521 C58.9936796,30.4127521 61.1230627,28.3657909 61.1230627,28.3657909 L59.9873917,26.3472597 C59.9873917,26.3472597 58.1987099,28.0246307 55.7286254,28.0246307 C53.1733656,28.0246307 50.9304154,26.4325497 50.7884565,23.2768179 L61.2650216,23.2768179 C61.2650216,23.2768179 61.3501969,22.4523474 61.3501969,22.0827571 C61.3501969,18.3584249 59.192422,15.3448432 55.1323981,15.3448432 C51.0439825,15.3448432 47.949279,18.3015649 47.949279,22.8787976 L47.949279,22.8787976 Z M50.8736318,21.2014266 C51.2711167,18.8417352 52.9746232,17.5339545 55.0756146,17.5339545 C56.92108,17.5339545 58.4542358,18.7280152 58.5394112,21.2014266 L50.8736318,21.2014266 Z M63.8929188,26.1482496 C63.8929188,29.7588617 66.1926526,30.1853119 67.7542002,30.1853119 C68.2368604,30.1853119 68.662737,30.1284519 68.662737,30.1284519 L68.662737,27.6834705 C68.662737,27.6834705 68.4356028,27.7119005 68.1800769,27.7119005 C67.3283236,27.7119005 66.646921,27.3991703 66.646921,25.6649393 L66.646921,10 L63.8929188,10 L63.8929188,26.1482496 Z M69.8994372,22.8503676 C69.8994372,27.2285902 73.3632338,30.4127521 77.6503919,30.4127521 C81.93755,30.4127521 85.4013465,27.2285902 85.4013465,22.8503676 C85.4013465,18.500575 81.93755,15.3448432 77.6503919,15.3448432 C73.3632338,15.3448432 69.8994372,18.500575 69.8994372,22.8503676 L69.8994372,22.8503676 Z M72.710223,22.8503676 C72.710223,19.8652158 74.9531732,17.7329646 77.6503919,17.7329646 C80.3760023,17.7329646 82.5905608,19.8652158 82.5905608,22.8503676 C82.5905608,25.8639494 80.3760023,28.0246307 77.6503919,28.0246307 C74.9531732,28.0246307 72.710223,25.8639494 72.710223,22.8503676 L72.710223,22.8503676 Z M88.1088884,30.0715919 L90.8628906,30.0715919 L90.8628906,23.3052479 L92.9354902,23.3052479 L97.25104,30.0715919 L100.459311,30.0715919 L95.1500486,22.0827571 L95.1500486,22.0258971 L99.9198669,15.6860034 L96.7967716,15.6860034 L92.8787066,20.9739865 L90.8628906,20.9739865 L90.8628906,10 L88.1088884,10 L88.1088884,30.0715919 Z M101.241742,26.0345295 C101.241742,28.9059612 103.655043,30.4127521 106.125128,30.4127521 C109.560533,30.4127521 110.724595,27.5697504 110.724595,27.5697504 L110.781379,27.5697504 C110.781379,27.5697504 110.724595,28.0530607 110.724595,28.7069511 L110.724595,30.0715919 L113.279855,30.0715919 L113.279855,20.9739865 C113.279855,17.3349443 111.235647,15.3448432 107.6015,15.3448432 C104.308054,15.3448432 102.235455,17.0506442 102.235455,17.0506442 L103.371126,19.0691754 C103.371126,19.0691754 105.159807,17.6761045 107.374366,17.6761045 C109.191439,17.6761045 110.525853,18.472145 110.525853,20.8318364 L110.525853,21.0877066 L109.901234,21.0877066 C107.487933,21.0877066 101.241742,21.2867167 101.241742,26.0345295 L101.241742,26.0345295 Z M104.024136,25.8923794 C104.024136,23.3052479 107.771851,23.1630978 109.84445,23.1630978 L110.554245,23.1630978 L110.554245,23.6179781 C110.554245,25.7502293 109.049481,28.1952108 106.721355,28.1952108 C104.932673,28.1952108 104.024136,27.0580101 104.024136,25.8923794 L104.024136,25.8923794 Z"
+                            id="traveloka" fill="#434343"></path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+        <div class="flex justify-between items-center">
+            <div class="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none" fill-rule="evenodd">
+                        <rect width="24" height="24"></rect>
+                        <circle cx="12" cy="12" r="10" fill="#FFF" stroke="#0264C8" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></circle>
+                        <path stroke="#0264C8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12,22 C15.0375661,22 17.5,17.5228475 17.5,12 C17.5,6.4771525 15.0375661,2 12,2 C8.96243388,2 6.5,6.4771525 6.5,12 C6.5,17.5228475 8.96243388,22 12,22 Z M12,22 L12,2 M22,12 L2,12">
+                        </path>
+                    </g>
+                </svg>
+                <p class="uppercase ml-2">en | usd</p>
+                <svg class="ml-2 mt-1" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6L8 11L13 6" stroke="#0194F3" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <div class="flex ml-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    data-id="IcMarketingPromoBadge">
+                    <circle cx="12" cy="12" r="10" stroke="#0194f3" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></circle>
+                    <path
+                        d="M8.5 17.5L15.5 6.5C15.5 6.5 14 8.00002 12 8.00002C10 8.00002 8 7.05 8 7.05M8 7.00002V7.00002C9.10457 7.00002 10 7.89545 10 9.00002V9.00002C10 10.1046 9.10457 11 8 11V11C6.89543 11 6 10.1046 6 9.00002V9.00002C6 7.89545 6.89543 7.00002 8 7.00002V7.00002ZM18 15V15C18 16.1046 17.1046 17 16 17V17C14.8954 17 14 16.1046 14 15V15C14 13.8954 14.8954 13 16 13V13C17.1046 13 18 13.8954 18 15Z"
+                        stroke="#91EC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <p class="ml-2">Deals</p>
+            </div>
+            <div class="flex ml-6">
+                <p>Support</p>
+                <svg class="ml-2 mt-2" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" data-id="IcSystemChevronDown">
+                    <path d="M6 9L12 15L18 9" stroke="#687176" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <p class="flex ml-6">Partnership</p>
+            <p class="flex ml-6">Bookings</p>
+            <div class="flex ml-6 w-24 h-8 justify-center items-center text-sm border-blue-500 rounded-md border">
+                <svg class="" width="14" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    data-id="IcSystemUserAccountFill">
+                    <path
+                        d="M3.44954 20.6443C3.3058 21.3665 3.88623 22 4.62267 22H19.3773C20.1138 22 20.6942 21.3665 20.5505 20.6443C19.9516 17.635 17.9884 13 12 13C6.01165 13 4.04844 17.635 3.44954 20.6443Z"
+                        fill="#0194f3"></path>
+                    <path
+                        d="M7 7.5C7 10.2614 9.23858 12.5 12 12.5C14.7614 12.5 17 10.2614 17 7.5V6.5C17 3.73858 14.7614 1.5 12 1.5C9.23858 1.5 7 3.73858 7 6.5V7.5Z"
+                        fill="#0194f3"></path>
+                </svg>
+                <p class="ml-2">Log In</p>
+            </div>
+            <div
+                class="flex ml-1 w-24 h-8 justify-center items-center text-sm text-white font-bold bg-blue-500 rounded-md">
+                <p class="">Register</p>
+            </div>
+        </div>
+    </header>
+    <div class="flex ml-40 mt-10">
+        <p class="ml-4">Hotels</p>
+        <p class="ml-6">Flight</p>
+        <p class="ml-6">Air Transfer</p>
+        <p class="ml-6">Car Rental</p>
+        <p class="ml-6">Thing to Do</p>
+        <p class="flex ml-6">More
+            <svg class="ml-2 mt-1" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6L8 11L13 6" stroke="#0194F3" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+        </p>
+    </div>
+    <hr class="border opacity-50 border-gray-500 my-4">
+    <div class="flex justify-center items-center">
+        <div class="w-8/12 border opacity-50 border-gray-500 justify-center items-center flex h-10 rounded-lg">
+            <svg class="justify-start ml-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M15 15L20.5 20.5M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z"
+                    stroke="#0194F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <input
+                class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                type="text" placeholder="Any ideas on what to do for your next trip?" aria-label="Search">
+        </div>
+        <button
+            class="flex text-white bg-blue-500 w-16 h-10  rounded-r-lg justify-center items-center relative right-4">
+            <p>Search</p>
+        </button>
+    </div>
+    <div class="bg-blue-500 relative mt-2 w-full" style="height: 750px;">
+        <img class="absolute w-screen" src="img/Group.png" alt="">
+        <div class="flex mt-5 ml-60 left-0.5 items-center absolute">
+            <p class="text-white ml-4 text-sm">Xperience</p>
+            <p class="text-white ml-4 text-sm">/</p>
+            <p class="text-white ml-4 text-sm">Bali</p>
+            <p class="text-white ml-4 text-sm">/</p>
+            <p class="text-white ml-4 text-sm">Badung Regency</p>
+            <p class="text-white ml-4 text-sm">/</p>
+            <p class="text-white ml-4 text-sm">South Kuta</p>
+            <p class="text-white ml-4 text-sm">/</p>
+            <p class="text-white ml-4 text-sm">Uluwatu</p>
+            <p class="text-white ml-4 text-sm">/</p>
+            <p class="text-white ml-4 text-sm">Pecatu</p>
+            <p class="text-white ml-4 text-sm">/</p>
+            <p class="text-green-300 ml-4 text-sm">Tiket Pertunjukan Tari Kecak dan Tari Api di Pura Uluwatu</p>
+        </div>
+        <div class="flex text-white text-3xl mt-16 ml-64 font-bold absolute">
+            <p>Tiket Pertunjukan Tari Kecak dan Tari Api di Pura Uluwatu</p>
+        </div>
+        <div class="flex mt-32 absolute ml-64">
+            <svg width="22" height="22" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M7.40163 15.3008L7.40168 15.3008L7.41139 15.3084C7.76204 15.5634 8.23752 15.5638 8.58817 15.3087L8.58918 15.308L8.59068 15.3069L8.59791 15.3013L8.59797 15.3012C8.76496 15.1711 9.24069 14.8004 9.50635 14.575C10.0442 14.1187 10.764 13.4646 11.4872 12.6757C12.8825 11.1535 14.5 8.90637 14.5 6.5C14.5 2.33377 10.931 0 8 0C5.06901 0 1.5 2.33377 1.5 6.5C1.5 8.90637 3.11748 11.1535 4.51285 12.6757C5.236 13.4646 5.95585 14.1187 6.49365 14.575C6.75801 14.7993 7.23239 15.1689 7.40163 15.3008ZM8 9C9.38071 9 10.5 7.88071 10.5 6.5C10.5 5.11929 9.38071 4 8 4C6.61929 4 5.5 5.11929 5.5 6.5C5.5 7.88071 6.61929 9 8 9Z"
+                    fill="#687176"></path>
+            </svg>
+            <p class="text-white ml-2">Pura Uluwatu. Pecatu, South Kuta, Badung Regency, Bali, Indonesia</p>
+            <p class="text-green-300 ml-2">Show Map</p>
+        </div>
+        <div class="flex mt-40 top-2 absolute ml-64">
+            <img src="./img/time-icon.webp" width="22px" alt="">
+            <p class="text-white ml-2">Open | Mon, 17:00-18:00</p>
+            <p class="text-green-300 ml-2">See Opening Hours</p>
+        </div>
+        <div class="justify-center items-center mt-56 flex ml-56 absolute">
+            <img class="mt-2" src="./img/1.webp" alt="">
+            <div class="flex">
+                <div class="ml-2">
+                    <img class="mt-2" src="img/2.webp" alt="">
+                    <img class="mt-2" src="img/3.webp" alt="">
+                </div>
+                <div class="ml-2">
+                    <img class="mt-2" src="img/4.webp" alt="">
+                    <div class="relative mt-2 image-container">
+                        <img src="img/5.webp" alt="" class="w-full h-full object-cover">
+                        <div class="overlay justify-center items-center cursor-pointer" onclick="showMoreImages()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <g fill="none" fill-rule="evenodd">
+                                    <rect width="24" height="24"></rect>
+                                    <path fill="#ffffff" fill-rule="nonzero"
+                                        d="M5,2 L19,2 C21.209139,2 23,3.790861 23,6 L23,18 C23,20.209139 21.209139,22 19,22 L5,22 C2.790861,22 1,20.209139 1,18 L1,6 C1,3.790861 2.790861,2 5,2 Z M4.97387949,20 L18.9852783,20.0000197 C20.0898587,20.0000197 20.985298,19.1045804 20.985298,18 C20.985298,17.970929 20.9846641,17.9418615 20.9833969,17.9128182 C20.7924979,13.5376061 19.564699,11.35 17.3,11.35 C14.7,11.35 15,17 11.5,17 C9,17 9,14.65 6,14.65 C4.21295619,14.65 3.20800028,15.6960426 2.98513226,17.7881277 L2.98511953,17.7881263 C2.868112,18.8864881 3.66365681,19.8717396 4.76201861,19.9887472 C4.83239008,19.9962438 4.90310985,20 4.97387949,20 Z M7,10 C8.1045695,10 9,9.1045695 9,8 C9,6.8954305 8.1045695,6 7,6 C5.8954305,6 5,6.8954305 5,8 C5,9.1045695 5.8954305,10 7,10 Z">
+                                    </path>
+                                </g>
+                            </svg>
+                            <span class="ml-2">See All Photos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="bg-gray-100 flex justify-center items-center" style="height: 800px">
+        <div class="bg-white rounded-lg shadow-lg" style="height: 670px;width: 1200px;">
+            <p class="font-bold text-xl ml-5 mt-5">Available Ticket(s) for You</p>
+            <div class="flex justify-stretch mt-5">
+                <div class="items-center justify-center flex rounded-lg border-2 p-5 w-72 ml-5">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M7 2V5M17 2V5M3 8H21M11.5 11.5H12.5V12.5H11.5V11.5ZM11.5 16.5H12.5V17.5H11.5V16.5ZM16.5 11.5H17.5V12.5H16.5V11.5ZM6.5 16.5H7.5V17.5H6.5V16.5ZM5 21H19C20.1046 21 21 20.1046 21 19V6C21 4.89543 20.1046 4 19 4H5C3.89543 4 3 4.89543 3 6V19C3 20.1046 3.89543 21 5 21Z"
+                            stroke="#0194F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 11.5V12.5H6.5V11.5H7.5Z" stroke="#0194F3"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <p class="text-blue-500 font-bold ml-2">See Calendar</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Thu</p>
+                    <p class="font-bold">6 Jun</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Fri</p>
+                    <p class="font-bold">7 Jun</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Sat</p>
+                    <p class="font-bold">8 Jun</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Sun</p>
+                    <p class="font-bold">9 Jun</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Mon</p>
+                    <p class="font-bold">10 Jun</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Tue</p>
+                    <p class="font-bold">11 Jun</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Wed</p>
+                    <p class="font-bold">12 Jun</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Thu</p>
+                    <p class="font-bold">13 Jun</p>
+                </div>
+                <div class="items-center justify-center rounded-lg border-2 p-4 ml-2">
+                    <p class="text-gray-500 text-center">Fri</p>
+                    <p class="font-bold">14 Jun</p>
+                </div>
+                <div class="flex justify-center items-center ml-5">
+                    <div class="flex items-center justify-center w-10 h-10 border border-gray-500 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-lg border-2 ml-5 mt-5 flex" style="height: 140px; width: 1160px;">
+                <div class="">
+                    <p class="font-bold ml-3 mt-2 text-xl">[Best Selling] Admission Ticket</p>
+                    <p class="font-bold text-blue-500 ml-4 mt-1">See Details </p>
+                    <div class="border rounded-2xl flex mt-6 ml-3 w-36">
+                        <img src="img/icon1.webp" width="20px" alt="" class="ml-2">
+                        <p class="ml-2 text-gray-400">Easy Refund</p>
+                    </div>
+                </div>
+                <div class="ml-96 mt-2 ">
+                    <div class="flex relative">
+                        <p class="text-red-500 uppercase font-bold text-2xl">usd 8.32</p>
+                        <div class="mt-2 ml-28 absolute">
+                            <p class="uppercase text-gray-500 absolute w-20">usd 9.25</p>
+                            <div class="border absolute w-16 mt-3 border-gray-500"></div>
+                        </div>
+                        <div class="bg-red-100 mt-1 text-red-700 rounded-lg ml-20 p-1">-10%</div>
+                    </div>
+                    <div class="bg-blue-500 border rounded-lg flex justify-center p-4 mt-3 text-white font-bold text-xl"
+                        style="width: 450px;">Select Ticket</div>
+                </div>
+            </div>
+            <div class="rounded-lg border-2 ml-5 mt-5 flex" style="height: 140px; width: 1160px;">
+                <div class="">
+                    <p class="font-bold ml-3 mt-2 text-xl">Second Show Admission Ticket (19:00 - 20:00)</p>
+                    <p class="font-bold text-blue-500 ml-4 mt-1">See Details </p>
+                    <div class="border rounded-2xl flex mt-2 ml-3 w-36">
+                        <img src="img/icon1.webp" width="20px" alt="" class="ml-2">
+                        <p class="ml-2 text-gray-400">Easy Refund</p>
+                    </div>
+                </div>
+                <div class="ml-96 mt-2 mr-5">
+                    <div class="flex relative">
+                        <p class="text-red-500 uppercase font-bold text-2xl">usd 8.32</p>
+                        <div class="mt-2 ml-28 absolute">
+                            <p class="uppercase text-gray-500 absolute w-20">usd 9.25</p>
+                            <div class="border absolute w-16 mt-3 border-gray-500"></div>
+                        </div>
+                        <div class="bg-red-100 mt-1 text-red-700 rounded-lg ml-20 p-1">-10%</div>
+                    </div>
+                    <div class="bg-blue-500 border rounded-lg flex justify-center p-4 mt-3 text-white font-bold text-xl"
+                        style="width: 450px;">Select Ticket</div>
+                </div>
+            </div>
+            <div class="rounded-lg border-2 ml-5 mt-5 flex" style="height: 140px; width: 1160px;">
+                <div class="">
+                    <p class="font-bold ml-3 mt-2 text-xl">Second Show Admission Ticket (19:00 - 20:00)</p>
+                    <p class="font-bold text-blue-500 ml-4 mt-1">See Details </p>
+                    <div class="border rounded-2xl flex mt-2 ml-3 w-36">
+                        <img src="img/icon1.webp" width="20px" alt="" class="ml-2">
+                        <p class="ml-2 text-gray-400">Easy Refund</p>
+                    </div>
+                </div>
+                <div class="ml-96 mt-2 mr-5">
+                    <div class="flex relative">
+                        <p class="text-red-500 uppercase font-bold text-2xl">usd 8.32</p>
+                        <div class="mt-2 ml-28 absolute">
+                            <p class="uppercase text-gray-500 absolute w-20">usd 9.25</p>
+                            <div class="border absolute w-16 mt-3 border-gray-500"></div>
+                        </div>
+                        <div class="bg-red-100 mt-1 text-red-700 rounded-lg ml-20 p-1">-10%</div>
+                    </div>
+                    <div class="bg-blue-500 border rounded-lg flex justify-center p-4 mt-3 text-white font-bold text-xl"
+                        style="width: 450px;">Select Ticket</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bg-blue-500 relative" style="height: 850px;">
+        <p class="font-bold text-blue-500">'</p>
+        <p class="font-bold mt-8 text-xl ml-44">Overall Ratings & Reviews</p>
+        <div class="border rounded-lg p-5 w-72 justify-center flex mt-5 ml-44 bg-white text-blue-500 font-bold">
+            Traveloka (2079)</div>
+        <div class="border border-white w-9/12 mt-5 ml-44"></div>
+        <div class="flex">
+            <div
+                class="relative flex items-center justify-center w-24 h-24 border-8 ml-44 mt-7 border-blue-900 rounded-full">
+                <div
+                    class="absolute border-4 border-white rounded-full p-4 font-bold text-white text-3xl justify-center">
+                    9.4</div>
+            </div>
+            <div class="ml-20 mt-5">
+                <p class="text-white font-bold text-3xl">Exceptional</p>
+                <p class="mt-2 font-bold text-xl">From 2.1K reviews</p>
+                <div class="flex mt-2">
+                    <p class="text-gray-600">Provided by travelers on</p>
+                    <p class="text-gray-900 ml-2">traveloka</p>
+                </div>
+            </div>
+        </div>
+        <div class="ml-44 mt-5 relative text-blue-500" style="width: 1000px;height: 500px">'
+            <div class="bg-white rounded-lg" style="width: 1140px;height: 300px">
+                <div class="mt-1 ml-3 text-white">'
+                    <p class="text-gray-500 ml-3 font-bold text-xl">People often mention</p>
+                </div>
+                <div class="flex">
+                    <div class="flex items-center justify-center mt-5 ml-5">
+                        <div class="bg-blue-100 p-2.5 rounded-lg flex">
+                            <div class="flex items-center space-x-1 rounded-md bg-blue-500">
+                                <div class="inner-box w-3 h-3 flex items-center justify-center rounded p-3">
+                                    <i class="fa-solid fa-check" style="color: #ffffff; font-size: 0.5rem;"></i>
+                                </div>
+                            </div>
+                            <span class="text-blue-500 font-bold text-sm ml-2">All</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center mt-5 ml-5">
+                        <div class="border-2 p-2.5 rounded-xl flex">
+                            <div class="flex items-center space-x-1 rounded-md ">
+                                <div
+                                    class="inner-box w-3 h-3 flex items-center justify-center rounded p-3 border border-black">
+                                    <i class="fa-solid fa-check" style="color: #000; font-size: 0.5rem;"></i>
+                                </div>
+                            </div>
+                            <span class="text-black font-bold text-sm ml-2">️ Ticket redemption(811)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center mt-5 ml-5">
+                        <div class="border-2 p-2.5 rounded-xl flex">
+                            <div class="flex items-center space-x-1 rounded-md ">
+                                <div
+                                    class="inner-box w-3 h-3 flex items-center justify-center rounded p-3 border border-black">
+                                    <i class="fa-solid fa-check" style="color: #000; font-size: 0.5rem;"></i>
+                                </div>
+                            </div>
+                            <span class="text-black font-bold text-sm ml-2">️ ️Information signs(665)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center mt-5 ml-5">
+                        <div class="border-2 p-2.5 rounded-xl flex">
+                            <div class="flex items-center space-x-1 rounded-md ">
+                                <div
+                                    class="inner-box w-3 h-3 flex items-center justify-center rounded p-3 border border-black">
+                                    <i class="fa-solid fa-check" style="color: #000; font-size: 0.5rem;"></i>
+                                </div>
+                            </div>
+                            <span class="text-black font-bold text-sm ml-2">️ 🧹 Sanitary & cleanliness(601)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex items-center justify-center mt-5 ml-5">
+                        <div class="border-2 p-2.5 rounded-xl flex">
+                            <div class="flex items-center space-x-1 rounded-md ">
+                                <div
+                                    class="inner-box w-3 h-3 flex items-center justify-center rounded p-3 border border-black">
+                                    <i class="fa-solid fa-check" style="color: #000; font-size: 0.5rem;"></i>
+                                </div>
+                            </div>
+                            <span class="text-black font-bold text-sm ml-2">️ 👫 Staff helpfulness(601)</span>
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-center justify-center mt-5 ml-5">
+                        <div class="border-2 p-2.5 rounded-xl flex">
+                            <div class="flex items-center space-x-1 rounded-md ">
+                                <div
+                                    class="inner-box w-3 h-3 flex items-center justify-center rounded p-3 border border-black">
+                                    <i class="fa-solid fa-check" style="color: #000; font-size: 0.5rem;"></i>
+                                </div>
+                            </div>
+                            <span class="text-black font-bold text-sm ml-2">️ ️Facilities safety(534)</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center mt-5 ml-5">
+                        <div class="border-2 p-2.5 rounded-xl flex">
+                            <div class="flex items-center space-x-1 rounded-md ">
+                                <div
+                                    class="inner-box w-3 h-3 flex items-center justify-center rounded p-3 border border-black">
+                                    <i class="fa-solid fa-check" style="color: #000; font-size: 0.5rem;"></i>
+                                </div>
+                            </div>
+                            <span class="text-black font-bold text-sm ml-2">️ ⏰ Crowd & waiting time(133)</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center mt-5 ml-5">
+                        <div class="border-2 p-2.5 rounded-xl flex">
+                            <div class="flex items-center space-x-1 rounded-md ">
+                                <div
+                                    class="inner-box w-3 h-3 flex items-center justify-center rounded p-3 border border-black">
+                                    <i class="fa-solid fa-check" style="color: #000; font-size: 0.5rem;"></i>
+                                </div>
+                            </div>
+                            <span class="text-black font-bold text-sm ml-2">️ 🎢 Rides quality(121)</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex justify-stretch">
+                    <div class="border-r rounded-md p-4 mt-8 flex">
+                        <svg class="mt-2" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" data-id="IcSystemToolSort">
+                            <path d="M3 6H15.5M3 12H12.5M3 18H9" stroke="#687176" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6V19.5M19 19.5L16.5 17M19 19.5L21.5 17" stroke="#687176" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <div class="ml-4">
+                            <p class="text-gray-500 font-bold text-sm">Sort by</p>
+                            <p class="text-blue-500 font-bold">Most Recent</p>
+                        </div>
+                        <div class="ml-36 mt-4">
+                            <i class="fa-solid fa-chevron-down text-blue-500"></i>
+                        </div>
+                    </div>
+                    <div class="border-r rounded-md p-4 mt-8 flex">
+                        <svg class="mt-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            data-id="IcSystemToolFilter">
+                            <path d="M9 6H21M3 6H5M19 12H21M3 12H15M14 18H21M3 18H10" stroke="#687176" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7 8C8.10457 8 9 7.10457 9 6C9 4.89543 8.10457 4 7 4C5.89543 4 5 4.89543 5 6C5 7.10457 5.89543 8 7 8Z"
+                                stroke="#687176" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M17 14C18.1046 14 19 13.1046 19 12C19 10.8954 18.1046 10 17 10C15.8954 10 15 10.8954 15 12C15 13.1046 15.8954 14 17 14Z"
+                                stroke="#687176" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 20C13.1046 20 14 19.1046 14 18C14 16.8954 13.1046 16 12 16C10.8954 16 10 16.8954 10 18C10 19.1046 10.8954 20 12 20Z"
+                                stroke="#687176" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <div class="ml-4">
+                            <p class="text-gray-500 font-bold text-sm">Format</p>
+                            <p class="text-blue-500 font-bold">All Format</p>
+                        </div>
+                        <div class="ml-40 mt-4">
+                            <i class="fa-solid fa-chevron-down text-blue-500"></i>
+                        </div>
+                    </div>
+                    <div class="border-r rounded-md p-4 mt-8 flex">
+                        <svg class="mt-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            data-id="IcSystemToolFilter">
+                            <path d="M9 6H21M3 6H5M19 12H21M3 12H15M14 18H21M3 18H10" stroke="#687176" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7 8C8.10457 8 9 7.10457 9 6C9 4.89543 8.10457 4 7 4C5.89543 4 5 4.89543 5 6C5 7.10457 5.89543 8 7 8Z"
+                                stroke="#687176" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M17 14C18.1046 14 19 13.1046 19 12C19 10.8954 18.1046 10 17 10C15.8954 10 15 10.8954 15 12C15 13.1046 15.8954 14 17 14Z"
+                                stroke="#687176" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 20C13.1046 20 14 19.1046 14 18C14 16.8954 13.1046 16 12 16C10.8954 16 10 16.8954 10 18C10 19.1046 10.8954 20 12 20Z"
+                                stroke="#687176" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <div class="ml-4">
+                            <p class="text-gray-500 font-bold text-sm">Preferences</p>
+                            <p class="text-blue-500 font-bold">All Ratings, Current App Language</p>
+                        </div>
+                        <div class="ml-32 mt-4">
+                            <i class="fa-solid fa-chevron-down text-blue-500 ml-2"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex items-center" style="width: 1140px;">
+                <div class="text-gray-500 mt-10 font-bold w-52">Traveler Reviews</div>
+                <div class="ml-52"></div>
+                <div class="font-bold text-xl text-gray-800 ml-60 w-96 mt-7">Number of reviews per page</div>
+                <div class="flex items-center justify-center mt-3">
+                    <div class="border border-blue-400 flex justify-center items-center p-3 ml-5 mt-3 rounded-md text-white font-bold bg-blue-400 h-8">20</div>
+                </div>
+                <div class="flex items-center justify-center mt-3">
+                    <div class="border border-blue-100 flex justify-center items-center p-3 ml-5 mt-3 rounded-md text-blue-500 font-bold bg-blue-100 h-8">20</div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="w-12 h-12 bg-gray-100 mt-5 ml-5 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-left text-gray-500"></i>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="w-12 h-12 bg-gray-100 mt-5 ml-5 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-right text-gray-500"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
