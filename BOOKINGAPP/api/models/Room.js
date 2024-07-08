@@ -10,11 +10,11 @@ const RoomSchema = new mongoose.Schema({
     },
     maxPeople:{
         type: Number,
-        require: true
+        required: true,
     },
     desc:{
         type: String,
-        require: true
+        required: true,
     },
     roomNumbers:[{number:Number, unavailableDates:[{type: [Date]}]}],
 },

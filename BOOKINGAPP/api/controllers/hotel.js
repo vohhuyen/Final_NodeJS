@@ -1,4 +1,5 @@
-import Hotel from "../models/Hotel.js"
+import Hotel from "../models/Hotel.js";
+import Room from "../models/Room.js";
 //CREATE
 export const createHotel = async (req,res,next)=>{
     const newHotel = new Hotel(req.body)
@@ -35,16 +36,20 @@ export const deleteHotel = async (req,res,next)=>{
     }
 }
 //GET 
-export const getHotel = async (req,res,next)=>{
-    try{
-        const hotel = await Hotel.findById(
-            req.params.id
-        );
-        res.status(200).json(hotel)
-    }catch(err){
-        next(err);
+export const getHotel = async (req, res, next) => {
+  try {
+    console.log("Fetching hotel with ID:", req.params.id); // Thêm log để kiểm tra ID
+    const hotel = await Hotel.findById(req.params.id);
+    if (!hotel) {
+      return res.status(404).json({ message: "Hotel not found" });
     }
-}
+    res.status(200).json(hotel);
+  } catch (err) {
+    console.error("Error fetching hotel:", err); // Thêm log để kiểm tra lỗi
+    next(err);
+  }
+};
+
 //GET ALL
 export const getHotels = async (req, res, next) => {
     const { min, max, limit, ...others } = req.query;
@@ -99,3 +104,17 @@ export const countByType = async (req,res,next)=>{
         next(err);
     }
 }
+
+export const getHotelRooms = async (req, res, next) => {
+    try {
+      const hotel = await Hotel.findById(req.params.id);
+      const list = await Promise.all(
+        hotel.rooms.map((room) => {
+          return Room.findById(room);
+        })
+      );
+      res.status(200).json(list)
+    } catch (err) {
+      next(err);
+    }
+  };
